@@ -29,7 +29,7 @@
                     </mat-form-field>
                     <mat-form-field class="col-12">
                         <mat-label>Creador</mat-label>
-                        <mat-select required characters>
+                        <mat-select required formControlName="publisher">
                             <mat-option *ngFor="let publisher of publishers" [value]="publisher.id">{{publisher.desc}}</mat-option>
                         </mat-select>
                     </mat-form-field>
