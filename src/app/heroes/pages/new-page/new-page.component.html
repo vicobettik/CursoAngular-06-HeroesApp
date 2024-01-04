@@ -1,5 +1,9 @@
-<h1>editar/agregar Héroe</h1>
-<small>superman</small>
+<h1>
+    {{currentHero.id ? 'Editar' : 'Agregar'}}
+    Héroe
+    <small *ngIf="currentHero.id">{{currentHero.superhero}}</small>
+</h1>
+<!-- <small>superman</small> -->
 
 <mat-divider class="mb-2"></mat-divider>
 
@@ -35,15 +39,19 @@
                     </mat-form-field>
                     <mat-form-field class="col-12">
                         <mat-label>Alternative image</mat-label>
-                        <input type="text" matInput required formControlName="alt_image">
+                        <input type="text" matInput formControlName="alt_image">
                     </mat-form-field>
                 </form>
 
                 <div class="flex justify-content-between">
-                    <button mat-flat-button color="warn">
+                    <button mat-flat-button 
+                        *ngIf="currentHero.id"
+                        color="warn"
+                        (click)="onDeleteHero()">
                         <mat-icon>delete</mat-icon>
                         Borrar
                     </button>
+                    <span></span>
                     <button mat-flat-button color="primary"
                         (click)="onSubmit()">
                         <mat-icon>save</mat-icon>
